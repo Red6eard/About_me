@@ -67,6 +67,7 @@ table, th, td {
 	table-layout: fixed;
 }
 .selected {
+  font-family: sans-serif;
 	background-color: #f36f48;
 	font-weight: bold;
 	color: white;
