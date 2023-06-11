@@ -3,7 +3,8 @@ html {
 	padding: 0;
 }
 body {
-	font-family: 'Handlee', cursive;
+	font-family: sans-serif,arial,'Handlee', cursive;
+	font-style: italic;
 	font-size: 13pt;
 	background-color: #efefef;
 	padding: 10px;
