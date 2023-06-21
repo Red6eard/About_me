@@ -171,3 +171,7 @@ input, textarea {
   font-size: 24px;
   color: #3fb6b2
 }
+strong {
+  font-size: 24px;
+  font-style: cursive;
+}
