@@ -1,15 +1,33 @@
-window.onload = function() {
-      let apiKey = "6e21e6253ec263228596b846ab31d51a";
-      let city = "Tula";
-      let xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://api.openweathermap.org/data/3.0/weather?q=" + city + "&units=metric&lang=ru&appid=" + apiKey, true);
-      xhr.onload = function() {
-        if (this.status === 200) {
-          let data = JSON.parse(this.responseText);
-          let temp = data.main.temp;
-          let weather = data.weather[0].description;
-          document.getElementById("text").innerHTML = "Температура в городе Тула" + ": " + temp + "°C<br>" + "Погода: " + weather;
-        }
-      };
-      xhr.send();
-    };
+const geocodeApiKey = "6e21e6253ec263228596b846ab31d51a";
+const weatherApiKey = "6e21e6253ec263228596b846ab31d51a";
+const city = "Tula";
+
+// Запрос координат города с помощью сервиса геокодирования
+const geocodeUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city},&limit=5&appid=${weatherApiKey}`;
+fetch(geocodeUrl)
+  .then(response => response.json())
+  .then(data => {
+    // Извлечение координат города из ответа геокодирования
+  
+    const lat = data[0].lat;
+    const lng = data[0].lon;
+    // Запрос данных о погоде с помощью сервиса погоды
+    
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&lang=ru&appid=${weatherApiKey}`;
+    fetch(weatherUrl)
+      .then(response => response.json())
+      .then(data => {
+        const weatherElement = document.getElementById("weather");
+        const temperature = Math.round(data.main.temp - 273.15); // перевод в градусы Цельсия
+        const weatherDescription = data.weather[0].description;
+        const city = data.name
+        const icon = data.weather[0].icon;
+        weatherElement.innerHTML = `
+          <div>
+          <p>${city}</p>
+            <img src="http://openweathermap.org/img/wn/${icon}.png" alt="weather icon">
+            <span>${temperature} °C, ${weatherDescription}</span>
+          </div>
+        `;
+      });
+  });
