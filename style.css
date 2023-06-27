@@ -165,11 +165,10 @@ input, textarea {
 }
 
 #weather {
-  border: 3px solid #3fb6b2;
   margin-top: 50px;
   text-align: center;
-  font-size: 24px;
-  color: #3fb6b2
+  font-size: 48px;
+  font-style: bold;
 }
 strong {
   font-size: 24px;
