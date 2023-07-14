@@ -11,6 +11,10 @@ body {
 	margin: 0;
 }
 
+#date, #clock{
+  display: block;
+}
+
 #clock{
   font-size: 24px;
   font-style: bold;
