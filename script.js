@@ -1,3 +1,11 @@
+//**********Время*********
+
+
+
+
+
+// **********Погода******** 
+
 const geocodeApiKey = "6e21e6253ec263228596b846ab31d51a";
 const weatherApiKey = "6e21e6253ec263228596b846ab31d51a";
 const city = "Tula";
