@@ -1,5 +1,26 @@
 //**********Время*********
 
+  function updateClock() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+  
+    // Добавляем ведущий ноль, если значения меньше 10
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+    var timeString = hours + ":" + minutes + ":" + seconds;
+  
+    // Обновляем содержимое элемента на странице
+    var clockElement = document.getElementById('clock');
+    clockElement.textContent = timeString;
+  }
+  
+  // Обновляем время каждую секунду
+  setInterval(updateClock, 1000);
+
 
 
 
