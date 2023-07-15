@@ -24,6 +24,26 @@
 
 
 
+//*********Дата************
+
+ // Получаем текущую дату
+ let currentDate = new Date();
+
+ // Форматируем дату в виде "дд.мм.гггг"
+ let formattedDate = ("0" + currentDate.getDate()).slice(-2) + "." + ("0" + (currentDate.getMonth() + 1)).slice(-2) + "." + currentDate.getFullYear();
+
+ // Добавляем дату на страницу
+ document.getElementById("date").textContent = formattedDate;
+ 
+ 
+ //***********День недели********
+ 
+     // Массив с названиями дней недели
+     let daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+     // Получаем день недели (от 0 до 6)
+     let dayOfWeek = currentDate.getDay();
+         // Добавляем день недели на страницу
+         document.getElementById("day").textContent = daysOfWeek[dayOfWeek];
 
 // **********Погода******** 
 
